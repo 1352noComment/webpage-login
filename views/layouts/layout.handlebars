@@ -15,7 +15,7 @@
             <script src="js/jquery.cycle2.min.js"></script>
             <script type="text/javascript" src="js/main.js"></script>
 
-            <header class="navbar">
+            <header class="navbar navbar-default" >
             <nav class="navbar-inverse navbar-static-top">
                 <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -32,19 +32,12 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav">
-
-                  {{#if user}}
-                  <li class="active"><a href="#"><strong>Dashboard</strong><span class="sr-only"></span></a></li>
-                  {{else}}
-                    <li class="active"><a href="/users/register"><strong>Sign Up</strong><span class="sr-only"></span></a></li>
-                    {{/if}}
-
                     <li><a href="#"><strong>Link</strong></a></li>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Dropdown </strong><span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Mindmap</a></li>
+                        <li><a href="#">Scheduler</a></li>
                         <li><a href="#">Something else here</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Separated link</a></li>
@@ -60,15 +53,16 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                   </form>-->
                   <ul class="nav navbar-nav navbar-right">
-
                   {{#if user}}
+									<li><a href="/mindmap"><strong>Mindmap</strong></a></li>
                     <li><a href="/users/login"><strong>User Link</strong></a></li>
-
-                    <li><a href="/users/login"><strong>Sign Out</strong></a></li>
+                    <li><a href="/users/logout"><strong>Sign Out</strong></a></li>
 
                     {{else}}
-                    <li><a href="/users/login"><strong>Sign In</strong></a></li>
+                    <li><a href="/users/register"><strong>Sign Up</strong></a></li>
+										<li><a href="/users/login"><strong>Sign In</strong></a></li>
                     {{/if}}
+
 
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Dropdown </strong><span class="caret"></span></a>
@@ -86,7 +80,22 @@
             </nav>
         </header>
 
-{{{body}}}
+<div class="row">
+	<div class="col-lg-12">
+		{{#if success_msg}}
+<div class = "alert alert-success"> {{success_msg}}</div>
+{{/if}}
 
+{{#if error_msg}}
+<div class = "alert alert-danger"> {{error_msg}}</div>
+{{/if}}
+
+{{#if error}}
+<div class = "alert alert-danger"> {{error}}</div>
+{{/if}}
+
+{{{body}}}
+</div>
+</div>
 </body>
 </html>
